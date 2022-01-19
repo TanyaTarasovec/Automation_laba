@@ -23,7 +23,7 @@ public class AuthorizationTest extends BaseSplendidTest {
     public void verifyValidCread(){
         LoginPage login = new LoginPage();
         login.openPage().checkPage();
-        Boolean resultAuthorization = login.dologin("standart_user", "secret_sauce").isHomePageOpened();
+        Boolean resultAuthorization = login.dologin("standard_user", "secret_sauce").isHomePageOpened();
         Assert.assertTrue(resultAuthorization, "Home page is not opened");
 
     }
