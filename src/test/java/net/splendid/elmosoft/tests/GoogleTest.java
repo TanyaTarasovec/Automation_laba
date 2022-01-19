@@ -17,7 +17,7 @@ import com.google.inject.Inject;
 @Epic("Demo Tests")
 @Feature("REX Tab")
 @Guice
-public class GoogleTest extends BaseSplendidTest {
+public class  GoogleTest extends BaseSplendidTest {
 
 	@Inject
 	private GoogleSteps googleSteps;
