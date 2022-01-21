@@ -4,6 +4,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import net.elmosoft.splendid.service.runner.SuiteListener;
 import net.elmosoft.splendid.test.BaseSplendidTest;
+import net.splendid.elmosoft.pages.CartPage;
 import net.splendid.elmosoft.pages.HomePage;
 import net.splendid.elmosoft.pages.LoginPage;
 import org.testng.Assert;
@@ -17,14 +18,16 @@ import org.uncommons.reportng.HTMLReporter;
 @Feature("Login")
 @Guice
 
-public class AuthorizationTest extends BaseSplendidTest {
-
+public class AddintToCart extends BaseSplendidTest {
     @Test
-    public void verifyValidCread() {
+    public void verifyAddingToCart() {
         LoginPage login = new LoginPage();
         login.openPage().checkPage();
-        Boolean resultAuthorization = login.dologin("standard_user", "secret_sauce").isHomePageOpened();
-        Assert.assertTrue(resultAuthorization, "Home page is not opened");
+        login.dologin("standard_user", "secret_sauce");
 
+        HomePage home = new HomePage();
+        home.clickByAddToCartBtn(0);
+        Boolean resultChosen =  home.clickByCartIcon().isProductChoosen();
+        Assert.assertTrue(resultChosen, "Product is not choosen!");
     }
 }

@@ -17,14 +17,18 @@ import org.uncommons.reportng.HTMLReporter;
 @Feature("Login")
 @Guice
 
-public class AuthorizationTest extends BaseSplendidTest {
-
+public class Logout extends BaseSplendidTest {
     @Test
-    public void verifyValidCread() {
+    public void verifyLogout(){
         LoginPage login = new LoginPage();
         login.openPage().checkPage();
-        Boolean resultAuthorization = login.dologin("standard_user", "secret_sauce").isHomePageOpened();
-        Assert.assertTrue(resultAuthorization, "Home page is not opened");
+        login.dologin("standard_user", "secret_sauce");
 
+        HomePage home = new HomePage();
+        home.clickByRightGamburgerMenu();
+        home.clickByLogoutBtn();
+        Boolean resultLogout = login.isLoginPageOpened();
+
+        Assert.assertTrue(resultLogout, "Login page is opened");
     }
 }

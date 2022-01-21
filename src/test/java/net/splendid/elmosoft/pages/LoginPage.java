@@ -30,6 +30,9 @@ public class LoginPage extends Page {
         return PageFactory.initElements(driver, LoginPage.class);
 
     }
+    public Boolean isLoginPageOpened(){
+        return loginBtn.isExists();
+    }
 
 
     @Override
