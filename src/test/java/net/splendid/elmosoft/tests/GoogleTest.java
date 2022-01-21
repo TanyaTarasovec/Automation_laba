@@ -13,18 +13,18 @@ import org.uncommons.reportng.HTMLReporter;
 
 import com.google.inject.Inject;
 
-@Listeners({ SuiteListener.class, HTMLReporter.class })
+@Listeners({SuiteListener.class, HTMLReporter.class})
 @Epic("Demo Tests")
 @Feature("REX Tab")
 @Guice
-public class  GoogleTest extends BaseSplendidTest {
+public class GoogleTest extends BaseSplendidTest {
 
-	@Inject
-	private GoogleSteps googleSteps;
+    @Inject
+    private GoogleSteps googleSteps;
 
-	@Test(description = "Do search")
-	public void doSearchOnGooglePage() {
-		googleSteps.doSearch("Elmosoft minsk");
-		Assert.assertTrue(googleSteps.getNumberOfPages() > 0, "There are no pages");
-	}
+    @Test(description = "Do search")
+    public void doSearchOnGooglePage() {
+        googleSteps.doSearch("Elmosoft minsk");
+        Assert.assertTrue(googleSteps.getNumberOfPages() > 0, "There are no pages");
+    }
 }
